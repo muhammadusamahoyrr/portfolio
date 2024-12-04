@@ -1,9 +1,32 @@
-import React from 'react'
-
+import React from "react";
+import {
+  Navbar,
+  HeroComponent,
+  Skill,
+  Education,
+  Project,
+  Experience,
+  Contact,
+  Footer,
+} from "./components/index";
+import StarField from "./three";
 const App = () => {
   return (
-    <div className='text-2xl text-center bg-green-700 text-white'>App</div>
-  )
-}
+    <section className="w-full min-h-screen bg-black">
+      <div>
+        <Navbar />
+      </div>
+      <div className="bg-gradient-to-t from-black/90 to-black/100 ">
+        <HeroComponent />
+      </div>
+      <Skill />
+      <Experience />
+      <Project />
+      <Education />
+      <Contact />
+      <Footer />
+    </section>
+  );
+};
 
-export default App
+export default App;
