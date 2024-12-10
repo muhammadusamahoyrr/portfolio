@@ -257,6 +257,7 @@ export const projects = [
     language: ["React Js", "Redux Toolkit", "Talwind", "Local Storage"],
     image: website_3,
     created: "July 24,2024",
+    link:'https://todo-app-faizansiddique193.netlify.app',
     description:
       "I created this Todo List project while independently learning React JS, Redux Toolkit, Tailwind CSS, and local storage. This project helped me strengthen my understanding of modern JavaScript frameworks, state management, and responsive design, enhancing my skills for dynamic web applications.",
   },
