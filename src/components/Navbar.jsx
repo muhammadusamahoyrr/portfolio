@@ -52,7 +52,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="flex md:hidden flex-col shadow-2xl bg-white/5 text-white absolute top-14 w-full px-7 py-4 z-50">
+        <div className="flex md:hidden flex-col shadow-2xl bg-accent/10 text-white absolute top-14 w-full px-7 py-4 z-50">
           {navbarData.map((data, index) => (
             <NavLink
               key={index}

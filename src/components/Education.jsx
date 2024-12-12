@@ -36,6 +36,7 @@ const Education = () => {
               backgroundPosition: "center", 
             }}
             key={index}
+            // className="border-opac"
           >
             <div className="flex">
               <img

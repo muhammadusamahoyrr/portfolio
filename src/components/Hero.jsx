@@ -77,7 +77,7 @@ const HeroComponent = () => {
          
             src={image}
             alt="image"
-            className="lg:w-96 lg:h-96 md:w-64 md:h-64 sm:w-56 sm:h-56 w-48 h-48 rounded-full border-2 border-accent object-center object-cover drop-shadow-lg shadow-md shadow-accent"
+            className="lg:w-96 lg:h-96 md:w-64 md:h-64 sm:w-64 sm:h-64 w-56 h-56 rounded-full border-2 border-accent object-center object-cover drop-shadow-lg shadow-md shadow-accent"
           />
         </motion.div>
         <div className="gap-x-4 mt-6 hidden sm:flex justify-center">

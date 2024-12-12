@@ -31,7 +31,7 @@ const Skill = () => {
           },
           boxShadow:'0px 6px 14px #D97706'
         }}
-         className="bg-black border border-accent p-5 flex flex-col items-center rounded-xl space-y-5 ">
+         className="bg-black border border-accent border-opacity-50 p-5 flex flex-col items-center rounded-xl space-y-5 ">
           <h1 className="text-secondary md:text-4xl text-3xl font-bold">
             Frontend
           </h1>
@@ -59,7 +59,7 @@ const Skill = () => {
           },
           boxShadow:'0px 6px 14px #D97706'
         }}
-         className="bg-transparent opacity-90 border border-accent p-5 flex flex-col items-center rounded-xl space-y-5 ">
+         className="bg-transparent opacity-90 border border-accent border-opacity-50  p-5 flex flex-col items-center rounded-xl space-y-5 ">
           <h1 className="text-secondary md:text-4xl text-3xl font-bold">
             Backend
           </h1>
@@ -88,7 +88,7 @@ const Skill = () => {
           boxShadow:'0px 6px 14px #D97706'
         
         }}
-         className="bg-transparent opacity-90 border border-accent p-5 flex flex-col items-center rounded-xl space-y-5 ">
+         className="bg-transparent opacity-90 border border-accent border-opacity-50 p-5 flex flex-col items-center rounded-xl space-y-5 ">
           <h1 className="text-secondary md:text-4xl text-3xl font-bold">
             Ms Office
           </h1>
@@ -116,7 +116,7 @@ const Skill = () => {
           },
           boxShadow:'0px 6px 14px #D97706'
         }}
-         className="borde bg-transparent opacity-90 border border-accent p-5 flex flex-col items-center rounded-xl space-y-5 ">
+         className="borde bg-transparent opacity-90 border border-accent border-opacity-50 p-5 flex flex-col items-center rounded-xl space-y-5 ">
           <h1 className="text-secondary md:text-4xl text-3xl font-bold">Other</h1>
           <div className="flex flex-wrap justify-center gap-3 items-center">
             {otherSkill.map((skill, index) => (

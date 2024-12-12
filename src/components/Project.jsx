@@ -29,11 +29,11 @@ const Project = () => {
               whileHover={{ y:-10}}
               whileTap={{ scale: 0.95 }}
               key={index}
-              className="p-5 cursor-pointer rounded-xl bg-transparent opacity-90 border border-accent drop-shadow-md shadow-md  hover:shadow-accent text-white relative"
+              className="p-5 cursor-pointer rounded-xl bg-transparent opacity-90 border border-accent drop-shadow-md shadow-md  hover:shadow-accent text-white relativen border-opacity-50"
               onClick={() => handleOpenProject(project)}
             >
              <a href={project.link}>
-              <div className="h-56 rounded-xl">
+              <div className="aspect-auto h-56 rounded-xl">
                 <img
                   className="w-full h-full rounded-xl"
                   src={project.image}
