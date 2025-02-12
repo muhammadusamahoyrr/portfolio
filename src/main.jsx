@@ -8,7 +8,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router  future={{ v7_startTransition: true }}>
      <Routes>
-     <Route path="/" element={<App />} />
+     <Route path="/" element={<App/>} />
      </Routes>
     </Router>
   </StrictMode>

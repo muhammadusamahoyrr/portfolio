@@ -1,71 +1,98 @@
-import React, { useEffect, useState } from "react";
-import { navbarData } from "../constant";
+import React, { useState, useEffect } from "react";
 import { NavHashLink as NavLink } from "react-router-hash-link";
 import { RiMenu3Line } from "react-icons/ri";
 import { X } from "lucide-react";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-import { RxSlash } from "react-icons/rx";
-import '../style.css'
+import { useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { navbarData } from "../constant";
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
-  const toggleMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const closeMenu = () => {
-    setIsMobileMenuOpen(false); // Close menu when a link is clicked
+  const NavLinkItem = ({ data }) => {
+    const isActive = location.hash === `#${data.link}`;
+
+    return (
+      <NavLink smooth to={`/#${data.link}`} className="relative group cursor-pointer">
+        <span
+          className={`text-lg transition-colors  ${
+            isActive ? "text-accent" : "text-gray-300 hover:text-white"
+          }`}
+        >
+          {data.title}
+        </span>
+        {isActive && (
+          <motion.div
+            className="absolute bottom-0 left-0 w-full h-[2px] bg-accent"
+            layoutId="nav-underline"
+            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+          />
+        )}
+      </NavLink>
+    );
   };
 
   return (
-    <nav className="w-full  bg-black  text-softGray py-6 flex justify-between items-center font-sans fixed z-50 text-gray-100">
-      {/* Logo Section */}
-      <div className="text-[1rem] md:text-lg tracking-normal font-bold pl-7 italic">
-        <h1 className="text-accent">
-         FaizanSiddique
-        </h1>
-      </div>
-      {/* Desktop Navigation Links */}
-      <div className="hidden md:flex md:gap-x-5 md:pr-16 pr-7 text-sm md:text-[12px] sm:text-[10px] lg:text-lg">
-        {navbarData.map((data, index) => (
-          <NavLink
-            key={index}
-            smooth
-            to={`/#${data.link}`}
-            activeClassName="selected"
-            activeStyle={{ color: "#D97706" }}
-            className={`md:text-lg text-[1.2rem] active:text-accent`}
-          >
-            {data.title}
-          </NavLink>
-        ))}
-      </div>
+    <nav className="w-full fixed top-0 left-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/10">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="flex items-center gap-2"
+        >
+          <span className="text-2xl font-bold bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">
+            FaizanSiddique
+          </span>
+        </motion.div>
 
-      {/* Mobile Menu Toggle Button */}
-      <div className="text-lg pr-7 inline-block md:hidden">
-        <button onClick={toggleMenu}>
-          {isMobileMenuOpen ? <X /> : <RiMenu3Line />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
-        <div className="flex md:hidden flex-col shadow-2xl bg-accent/10 text-white absolute top-14 w-full px-7 py-4 z-50">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
           {navbarData.map((data, index) => (
-            <NavLink
-              key={index}
-              smooth
-              to={`/#${data.link}`}
-              className="py-2 text-lg hover:bg-accent  rounded-lg px-1 inline-block"
-              onClick={closeMenu} // Close the menu after a link is clicked
-            >
-              {data.title}
-            </NavLink>
+            <NavLinkItem key={index} data={data} />
           ))}
         </div>
-      )}
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          onClick={toggleMenu}
+          className="p-2 md:hidden text-gray-300 hover:text-white transition-colors"
+          whileTap={{ scale: 0.95 }}
+        >
+          {isMobileMenuOpen ? <X size={24} className="text-white"/> : <RiMenu3Line size={24} className="text-white"/>}
+        </motion.button>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            
+              <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 px-4  top-16 flex flex-col gap-4">
+                {navbarData.map((data, index) => (
+                  <NavLink
+                    key={index}
+                    smooth
+                    to={`/#${data.link}`}
+                    className="text-2xl text-white font-light py-4 border-b border-white/10 hover:text-accent transition-colors"
+                  >
+                    {data.title}
+                  </NavLink>
+                ))}
+              </motion.div>
+            
+          )}
+        </AnimatePresence>
+      </div>
     </nav>
   );
 };

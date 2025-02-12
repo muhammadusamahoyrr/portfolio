@@ -2,70 +2,75 @@ import React from "react";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 
-const LivePreview = ({ project, onclose, className }) => {
+const LivePreview = ({ project, onClose, className = "" }) => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center overflow-auto ${className}`}
+      className={`fixed inset-0 z-50 bg-black bg-opacity-75 flex justify-center items-center ${className}`}
     >
-      {/* Outer section - Now scrollable */}
-      <div
-        className="relative max-w-4xl w-full bg-primary border border-accent rounded-lg overflow-hidden"
-        style={{
-          maxHeight: "90vh", // Limits max height
-        }}
+      {/* Close Button */}
+      <button
+        aria-label="Close Live Preview"
+        className="absolute top-4 right-6 text-white hover:bg-red-600 rounded-full p-2"
+        onClick={onClose}
       >
-        {/* Close Button */}
-        <button
-          className="absolute top-4 right-4 text-white hover:bg-red-600 rounded-full p-2"
-          onClick={onclose}
-        >
-          <X />
-        </button>
+        <X size={24} />
+      </button>
 
+      {/* Outer Container */}
+      <div className="relative max-w-3xl w-full bg-gray-900 shadow-lg overflow-hidden rounded-lg">
         {/* Scrollable Content */}
-        <div className="flex flex-col justify-between p-4 space-y-4 h-full">
+        <div className="flex flex-col justify-between p-6 space-y-6 h-full max-h-[90vh] overflow-y-auto">
           {/* Project Image */}
-          <div className="h-72 rounded-xl overflow-hidden">
+          <div className="h-64 rounded-lg overflow-hidden">
             <img
-              className="w-full h-full object-cover rounded-xl"
               src={project.image}
-              alt="website_image"
+              alt={`${project.title} preview`}
+              className="w-full h-full object-cover rounded-lg"
             />
           </div>
 
           {/* Project Languages */}
-          <div className="my-4 flex flex-wrap justify-start gap-2">
-            {project.language.map((lan, index) => (
-              <span
-                key={index}
-                className="py-1 px-3 text-accent rounded-lg border border-accent"
-              >
-                {lan}
-              </span>
-            ))}
-          </div>
+          {project.language.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {project.language.map((lang, index) => (
+                <span
+                  key={index}
+                  className="py-1 px-3 text-accent rounded-lg border border-accent bg-gray-800"
+                >
+                  {lang}
+                </span>
+              ))}
+            </div>
+          )}
 
           {/* Project Title */}
-          <h1 className="text-2xl sm:text-3xl text-orange-600 font-semibold">
+          <h1 className="text-2xl sm:text-3xl text-orange-500 font-semibold">
             {project.title}
           </h1>
 
           {/* Created Date */}
-          <span className="text-sm text-gray-600">{project.created}</span>
+          <span className="text-sm text-gray-400">
+            Created: {project.created}
+          </span>
 
           {/* Project Description */}
-          <p className="line-clamp-3 mt-1 text-white">{project.description}</p>
+          <p className="text-gray-300 leading-relaxed">{project.description}</p>
 
-          {/* Buttons */}
-          <div className="flex items-center justify-evenly gap-x-10 pb-5 mt-auto">
-            <button className="py-3 flex-1 px-4 text-accent text-xl rounded-lg border bg-white border-accent transition duration-200 hover:bg-accent hover:text-white">
+          {/* Action Buttons */}
+          <div className="flex justify-evenly gap-4 mt-auto">
+            <button
+              className="py-2 px-6 flex-1 bg-white text-accent text-lg font-semibold rounded-lg border border-accent hover:bg-accent hover:text-white transition"
+              onClick={() => window.open(project.codeLink, "_blank")}
+            >
               Get Code
             </button>
-            <button className="py-3 flex-1 px-5 text-white rounded-lg text-xl border bg-accent border-accent transition duration-200 hover:text-accent hover:bg-white">
-              <a href={project.link}>Live Preview</a>
+            <button className="py-2 px-6 flex-1 bg-accent text-white text-lg font-semibold rounded-lg border border-accent hover:bg-white hover:text-accent transition">
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                Live Preview
+              </a>
             </button>
           </div>
         </div>
@@ -73,5 +78,7 @@ const LivePreview = ({ project, onclose, className }) => {
     </motion.section>
   );
 };
+
+
 
 export default LivePreview;

@@ -8,17 +8,27 @@ import {
   Experience,
   Contact,
   Footer,
+  About,
 } from "./components/index";
-import StarField from "./three";
+import { ToastContainer } from "react-toastify";
+
 const App = () => {
   return (
     <section className="w-full min-h-screen bg-black">
-      <div>
-        <Navbar />
-      </div>
-      <div className="bg-gradient-to-t from-black/90 to-black/100 ">
-        <HeroComponent />
-      </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <Navbar />
+      <HeroComponent />
+      <About />
       <Skill />
       <Experience />
       <Project />
@@ -30,3 +40,5 @@ const App = () => {
 };
 
 export default App;
+
+// bg-gradient-to-t from-black/90 to-black/100

@@ -3,7 +3,7 @@ import { socialLinks, navbarData } from "../constant/index";
 import { NavHashLink as NavLink } from "react-router-hash-link";
 const Footer = () => {
   return (
-    <footer className="w-full py-5 font-sans border-t drop-shadow-lg border-accent ">
+    <footer className="w-full py-5 font-sans drop-shadow-lg  bg-gradient-to-br from-black to-[#1a1a1a]">
       <div className="flex justify-center flex-col items-center space-y-5 sm:space-y-7 py-10">
         <h1 className="text-2xl text-accent md:font-bold font-semibold md:text-4xl">
           Faizan siddique
@@ -30,7 +30,7 @@ const Footer = () => {
           ))}
         </ul>
       </div>
-      <p className="text-white bg-black text-center md:text-start  mt-5 px-2">
+      <p className="text-white bg-black text-center  mt-5 px-2">
         © 2024 Faizan Siddique. All rights reserved
       </p>
     </footer>

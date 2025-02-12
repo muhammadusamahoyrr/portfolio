@@ -35,35 +35,27 @@ export const navbarData = [
   {
     title: "About",
     link: "about",
- 
   },
   {
     title: "Skills",
     link: "skill",
-
-
   },
   {
     title: "Experience",
     link: "experience",
-    
   },
   {
     title: "Projects",
     link: "project",
-    
   },
 
   {
-
     title: "Education",
     link: "education",
-   
   },
   {
     title: "Contact",
     link: "contact",
-    
   },
 ];
 
@@ -109,7 +101,7 @@ export const educationData = [
   {
     AcademyName: "Air University",
     image: uni_img,
-    degree: "Bechlor of Science in Software Engineering",
+    degree: "Bachlor of Science in Software Engineering",
     date: "sep 2023 - sep 2027",
     about:
       "I am currently pursuing a Bachelor’s degree in Software Engineering at Air University Islamabad. This program equips me with a strong foundation in software development, algorithms, and system design, while fostering skills in problem-solving, teamwork, and innovation. My studies are focused on preparing me to excel in modern technological challenges and contribute to cutting-edge software solutions.",
@@ -132,7 +124,130 @@ export const educationData = [
   },
 ];
 
-export const frontendSkill = [
+export const skillsData = [
+  {
+    title: "HTML5",
+    icon: FaHtml5,
+    color: "#E34F26",
+    level: 95,
+  },
+  {
+    title: "CSS3",
+    icon: FaCss3,
+    color: "#663399",
+    level: 85,
+  },
+  {
+    title: "Bootstrap",
+    icon: FaBootstrap,
+    color: "#7952B3",
+    level: 80,
+  },
+  {
+    title: "Tailwind",
+    icon: RiTailwindCssFill,
+    color: "#06B6D4",
+    level: 80,
+  },
+  {
+    title: "JavaScript",
+    icon: IoLogoJavascript,
+    color: "#F7DF1E",
+    level: 75,
+  },
+  {
+    title: "React Js",
+    icon: FaReact,
+    color: "#61DAFB",
+    level: 90,
+  },
+  {
+    title: "Redux",
+    icon: SiRedux,
+    color: "#764ABC",
+    level: 85,
+  },
+  {
+    title: "Node js",
+    icon: DiNodejs,
+    color: "#5FA04E",
+    level: 80,
+  },
+  {
+    title: "Express js",
+    icon: SiExpress,
+    color: "#000000",
+    level: 85,
+  },
+  {
+    title: "MongoDB",
+    icon: SiMongodb,
+    color: "#47A248",
+    level: 80,
+  },
+  {
+    title: "Oracle",
+    icon: SiOracle,
+    color: "#F80000",
+    level: 75,
+  },
+  {
+    title: "Postman",
+    icon: SiPostman,
+    color: "#FF6C37",
+    level: 85,
+  },
+  {
+    title: "MS Word",
+    icon: SiMicrosoftword,
+    color: "#2B579A",
+    level: 95,
+  },
+  {
+    title: "MS Powerpoint",
+    icon: SiMicrosoftpowerpoint,
+    color: "#D24726",
+    level: 90,
+  },
+  {
+    title: "MS Excel",
+    icon: SiMicrosoftexcel,
+    color: "#217346",
+    level: 70,
+  },
+  {
+    title: "MS Access",
+    icon: SiMicrosoftaccess,
+    color: "#A4373A",
+    level: 65,
+  },
+  {
+    title: "VS Code",
+    icon: VscVscode,
+    color: "#007ACC",
+    level: 95,
+  },
+  {
+    title: "Visualstudio",
+    icon: DiVisualstudio,
+    color: "#5C2D91",
+    level: 80,
+  },
+  {
+    title: "Github",
+    icon: FaGithub,
+    color: "#181717",
+    level: 75,
+  },
+  {
+    title: "Git",
+    icon: FaGitAlt,
+    color: "#F05032",
+    level: 85,
+  },
+];
+
+export const skills = [
   {
     title: "HTML5",
     icon: FaHtml5,
@@ -161,9 +276,6 @@ export const frontendSkill = [
     title: "Redux",
     icon: SiRedux,
   },
-];
-
-export const backendSkill = [
   {
     title: "Node js",
     icon: DiNodejs,
@@ -185,79 +297,40 @@ export const backendSkill = [
     icon: SiPostman,
   },
 ];
-
-export const msOfficeSkill = [
-  {
-    title: "MS Word",
-    icon: SiMicrosoftword,
-  },
-  {
-    title: "MS Powerpoint",
-    icon: SiMicrosoftpowerpoint,
-  },
-  {
-    title: "MS Excel",
-    icon: SiMicrosoftexcel,
-  },
-  {
-    title: "MS Access",
-    icon: SiMicrosoftaccess,
-  },
-];
-
-export const otherSkill = [
-  {
-    title: "VS Code",
-    icon: VscVscode,
-  },
-  {
-    title: "Visualstudio",
-    icon: DiVisualstudio,
-  },
-  {
-    title: "Github",
-    icon: FaGithub,
-  },
-  {
-    title: "Git",
-    icon: FaGitAlt,
-  },
-];
-
 export const projects = [
   {
     title: "SafeFundz",
-    language: ["HTML5", "CSS3"],
+    techStack: ["HTML5", "CSS3"],
     image: website_1,
     created: "December 12,2023",
-    link:'https://non-profit-by-faizan.netlify.app',
+    link: "https://non-profit-by-faizan.netlify.app",
     description:
       "I developed this project in my first semester, gaining hands-on experience with foundational coding skills and learning the basics of debugging and user interface design. This project laid a strong groundwork for my studies in software engineering, strengthening my problem-solving and technical abilities.",
   },
   {
     title: "Life Fitness Gym",
-    language: ["HTML5", "CSS3"],
+    techStack: ["HTML5", "CSS3"],
     image: website_2,
     created: "March 5,2024",
-    link:'https://life-fitness-gym-faizan.netlify.app',
+    link: "https://life-fitness-gym-faizan.netlify.app",
     description:
       "I developed this project as part of my work with the AUSES society in my second semester, using HTML and CSS. This role allowed me to contribute to meaningful projects, improve my front-end design skills, and gain experience in creating user-friendly interfaces.",
   },
   {
     title: "Iha Agency",
-    language: ["HTML5", "CSS3"],
+    techStack: ["HTML5", "CSS3"],
     image: website_4,
     created: "March 5,2024",
-    link:'https://iha-agency-faizansiddique.netlify.app',
+    link: "https://iha-agency-faizansiddique.netlify.app",
     description:
       "I developed this project as part of my work with the AUSES society in my second semester, using HTML and CSS. This role allowed me to contribute to meaningful projects, improve my front-end design skills, and gain experience in creating user-friendly interfaces.",
   },
   {
     title: "Todo App",
-    language: ["React Js", "Redux Toolkit", "Talwind", "Local Storage"],
+    techStack: ["React Js", "Redux Toolkit", "Talwind", "Local Storage"],
     image: website_3,
     created: "July 24,2024",
-    link:'https://todo-app-faizansiddique193.netlify.app',
+    link: "https://todo-app-faizansiddique193.netlify.app",
     description:
       "I created this Todo List project while independently learning React JS, Redux Toolkit, Tailwind CSS, and local storage. This project helped me strengthen my understanding of modern JavaScript frameworks, state management, and responsive design, enhancing my skills for dynamic web applications.",
   },

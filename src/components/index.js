@@ -8,16 +8,17 @@ import Experience from "./Experience";
 import Input from "./Input";
 import Contact from "./Contact";
 import Footer from "./Footer";
-export 
-{
-    Navbar,
-    HeroComponent,
-    Education,
-    Skill,
-    Project,
-    LivePreview,
-    Experience,
-    Input,
-    Contact,
-    Footer
-}
+import About from "./About";
+export {
+  Navbar,
+  HeroComponent,
+  Education,
+  Skill,
+  Project,
+  LivePreview,
+  Experience,
+  Input,
+  Contact,
+  Footer,
+  About,
+};

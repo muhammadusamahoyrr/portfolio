@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import { Input } from "../components/index";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaPhone } from "react-icons/fa";
+import { FaPhone, FaPaperPlane } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import emailjs from "@emailjs/browser";
+import { toast, ToastContainer } from "react-toastify";
 
 const Contact = () => {
   const {
@@ -25,117 +27,167 @@ const Contact = () => {
       )
       .then(
         (response) => {
-          alert("Form has been submitted successfully");
-          reset(); // Reset form fields
+          toast.success("Message sent successfully!");
+          reset();
         },
         (error) => {
-          alert("Failed to submit the form");
+          toast.error("Failed to send message");
           console.error("Error:: ", error);
         }
       );
   };
+
+  // Reusable contact method component
+  const ContactMethod = ({ icon: Icon, title, value }) => (
+    <motion.li
+      className="flex items-center gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-accent/30 transition-all"
+      whileHover={{ y: -5 }}
+    >
+      <Icon className="text-3xl text-accent flex-shrink-0" />
+      <div>
+        <p className="text-gray-400 text-sm">{title}</p>
+        <p className="text-white font-medium">{value}</p>
+      </div>
+    </motion.li>
+  );
+
   return (
     <section
       id="contact"
-      className="w-full font-sans py-10 px-1 bg-black mb-20 md:mb-40"
+      className="w-full font-sans py-20 px-4 sm:px-8 bg-gradient-to-br from-black to-[#1a1a1a]"
     >
-      <h1
-        className="text-white lg:text-6xl text-5xl font-bold text-center mb-10"
-        style={{ textShadow: "-2px -7px 0px #D97706" }}
-      >
-        Contact
-      </h1>
-      <div className="flex flex-col justify-center md:flex-row gap-5">
-        {/* Left Section */}
-        <div className="text-white flex flex-col  items-center sm:items-start justify-center md:text-start rounded-lg w-full md:max-w-[40%]">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-accent">
-            Get In Touch
-          </h2>
-          <p className="text-secondary leading-relaxed text-center sm:text-start">
-            Feel free to reach out to me for any <br/>inquiries, collaborations, or
-            great opportunities.
-          </p>
-          <ul className="mt-6 space-y-2 flex flex-col items-center sm:items-start  text-gray-400">
-            <li className="text-accent">
-              <MdOutlineEmail className="inline-block mr-1 text-xl md:text-2xl" />
-              <span className="text-white ml-1">youremail@example.com</span>
-            </li>
-            <li className="text-accent">
-              <FaPhone className="inline-block mr-1 text-xl md:text-2xl" />
-              <span className="text-white ml-1">+123 456 7890</span>
-            </li>
-            <li className="text-accent">
-              <FaLocationDot className="inline-block mr-1 md:text-2xl" />
-              <span className="text-white ml-1">Your City, Country</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Form Section */}
-        <form
-        autoComplete="off"
-          className="w-full md:max-w-[40%] !bg-black bg-opacity-60 p-6 rounded-lg drop-shadow-md"
-          ref={form}
-          onSubmit={handleSubmit(sendEmail)}
+      <div className="container mx-auto max-w-6xl">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-6xl font-bold text-center mb-20 text-white"
+          
         >
-          <div className="space-y-5 bg-black">
-            <Input
-             
-              className="outline-none border border-secondary focus:border-accent bg-transparent text-white p-3 rounded-lg autofill:text-white"
-              type="text"
-              placeholder="Name"
-              {...register("from_name", { required: true })}
-              aria-invalid={errors.from_name ? "true" : "false"}
-            />
-            {errors.from_name?.type === "required" && (
-              <p className="text-red-500">Name is required</p>
-            )}
+          Contact
+        </motion.h1>
 
-            <Input
-              className="outline-none border border-secondary focus:border-accent bg-transparent text-white p-3 rounded-lg"
-              type="email"
-              placeholder="Email"
-              {...register("email", {
-                required: "Email is required",
-                pattern: {
-                  value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-                  message: "Invalid email format",
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">
+              Let's Connect
+            </h2>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              Have a project in mind or just want to say hello?
+              <br />
+              I'd love to hear from you!
+            </p>
+
+            <ul className="space-y-4">
+              <ContactMethod
+                icon={MdOutlineEmail}
+                title="Email"
+                value="contact.faizan193@gmail.com"
+              />
+              <ContactMethod
+                icon={FaPhone}
+                title="Phone"
+                value="+92 324 1512 459"
+              />
+              <ContactMethod
+                icon={FaLocationDot}
+                title="Location"
+                value="Islamabad, Pakistan"
+              />
+            </ul>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.form
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            ref={form}
+            onSubmit={handleSubmit(sendEmail)}
+            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 space-y-6"
+          >
+            {[
+              {
+                name: "from_name",
+                type: "text",
+                label: "Name",
+                required: true,
+              },
+              {
+                name: "email",
+                type: "email",
+                label: "Email",
+                validation: {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                    message: "Invalid email format",
+                  },
                 },
-              })}
-              aria-invalid={errors.email ? "true" : "false"}
-            />
-            {errors.email?.type === "required" && (
-              <p className="text-red-500">{errors.email.message}</p>
-            )}
-            <Input
-              className="outline-none border border-secondary focus:border-accent bg-transparent p-3 rounded-lg text-white"
-              type="text"
-              placeholder="Subject"
-              {...register("subject", { required: true })}
-              aria-invalid={errors.subject ? "true" : "false"}
-            />
-            {errors.subject?.type === "required" && (
-              <p className="text-red-500">Subject is required</p>
-            )}
-            <textarea
-              className="outline-none border border-secondary focus:border-accent bg-transparent p-3 rounded-lg text-white w-full"
-              rows="4"
-              placeholder="Message"
-              {...register("message", { required: true })}
-              aria-invalid={errors.message ? "true" : "false"}
-            />
-            {errors.message?.type === "required" && (
-              <p className="text-red-500">Message is required</p>
-            )}
-            <button
-              className="w-full text-lg bg-accent hover:bg-orange-500 text-white py-3 rounded-lg transition-all"
+              },
+              {
+                name: "subject",
+                type: "text",
+                label: "Subject",
+                required: true,
+              },
+              {
+                name: "message",
+                type: "textarea",
+                label: "Message",
+                required: true,
+              },
+            ].map((field, index) => (
+              <div key={field.name} className="space-y-2">
+                <label className="text-gray-300 text-sm">{field.label}</label>
+                {field.type === "textarea" ? (
+                  <textarea
+                    {...register(
+                      field.name,
+                      field.validation || { required: field.required }
+                    )}
+                    className="w-full bg-black/20 border border-white/10 rounded-lg p-3 text-white focus:border-accent focus:ring-2 focus:ring-accent/30 transition-all"
+                    rows="4"
+                    placeholder={`Enter your ${field.label.toLowerCase()}`}
+                  />
+                ) : (
+                  <Input
+                    {...register(
+                      field.name,
+                      field.validation || { required: field.required }
+                    )}
+                    type={field.type}
+                    className="w-full bg-black/20 border border-white/10 rounded-lg p-3 text-white focus:border-accent focus:ring-2 focus:ring-accent/30 transition-all"
+                    placeholder={`Enter your ${field.label.toLowerCase()}`}
+                  />
+                )}
+                {errors[field.name] && (
+                  <p className="text-red-400 text-sm mt-1">
+                    {errors[field.name].message || `${field.label} is required`}
+                  </p>
+                )}
+              </div>
+            ))}
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               type="submit"
+              className="w-full bg-gradient-to-r from-accent to-white/10 text-white py-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-accent/20"
             >
-              Submit
-            </button>
-          </div>
-        </form>
+              <FaPaperPlane className="text-xl" />
+              Send Message
+            </motion.button>
+          </motion.form>
+        </div>
       </div>
+      <ToastContainer position="bottom-right" theme="dark" />
     </section>
   );
 };

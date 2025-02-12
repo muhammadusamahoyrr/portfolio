@@ -1,139 +1,95 @@
-import React from "react";
-import { easeInOut, motion } from "framer-motion";
-import {
-  frontendSkill,
-  backendSkill,
-  msOfficeSkill,
-  otherSkill,
-} from "../constant/index";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { skillsData } from "../constant";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css"; // Ensure this import is included
+
 const Skill = () => {
+  const [activeSkill, setActiveSkill] = useState(null);
+
   return (
-    <section id="skill" className="w-full font-sans py-5 mb-20 ">
-      <h1 
-      style={{textShadow:'-2px -7px 0px  #D97706'}}
-      className="text-white lg:text-6xl text-5xl font-bold text-center mb-28">
-        Skills
-      </h1>
-      <motion.div
-        animate={{
-          opacity: [0, 1],
-          x: [-100, 0],
-          transition: { duration: 1, ease: "easeInOut" },
-        }}
-        className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-10  sm:px-3 md:px-16 px-1 "
-      >
-        <motion.div
-        whileHover={{
-          rotateX:'10deg',
-          rotateY:'-15deg',
-          transition:{
-            duration:0.3
-          },
-          boxShadow:'0px 6px 14px #D97706'
-        }}
-         className="bg-black border border-accent border-opacity-50 p-5 flex flex-col items-center rounded-xl space-y-5 ">
-          <h1 className="text-secondary md:text-4xl text-3xl font-bold">
-            Frontend
-          </h1>
-          <div className="flex flex-wrap justify-center gap-3 items-center">
-            {frontendSkill.map((skill, index) => (
-              <div
-                key={index}
-                className="py-2 px-3 rounded-xl border border-accent flex justify-center items-center space-x-2 shadow-sm shadow-accent"
-              >
-                <span className="text-xl sm:text-2xl md:text-3xl text-accent">
-                  {skill.icon && <skill.icon />}
-                </span>
-                <h6 className="text-secondary md:text-xl">{skill.title}</h6>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-        {/* backend data */}
-        <motion.div
-         whileHover={{
-          rotateX:'10deg',
-          rotateY:'-15deg',
-          transition:{
-            duration:0.3
-          },
-          boxShadow:'0px 6px 14px #D97706'
-        }}
-         className="bg-transparent opacity-90 border border-accent border-opacity-50  p-5 flex flex-col items-center rounded-xl space-y-5 ">
-          <h1 className="text-secondary md:text-4xl text-3xl font-bold">
-            Backend
-          </h1>
-          <div className="flex flex-wrap justify-center gap-3 items-center">
-            {backendSkill.map((skill, index) => (
-              <div
-                key={index}
-                className="py-2 px-3 rounded-xl border border-accent flex justify-center items-center space-x-2 shadow-sm shadow-accent"
-              >
-                <span className="text-xl sm:text-2xl md:text-3xl text-accent">
-                  {skill.icon && <skill.icon />}
-                </span>
-                <h6 className="text-secondary md:text-xl">{skill.title}</h6>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-        {/* ms office */}
-        <motion.div
-         whileHover={{
-          rotateX:'10deg',
-          rotateY:'-15deg',
-          transition:{
-            duration:0.3
-          },
-          boxShadow:'0px 6px 14px #D97706'
-        
-        }}
-         className="bg-transparent opacity-90 border border-accent border-opacity-50 p-5 flex flex-col items-center rounded-xl space-y-5 ">
-          <h1 className="text-secondary md:text-4xl text-3xl font-bold">
-            Ms Office
-          </h1>
-          <div className="flex flex-wrap justify-center gap-3 items-center">
-            {msOfficeSkill.map((skill, index) => (
-              <div
-                key={index}
-                className="py-2 px-3 rounded-xl border border-accent flex justify-center items-center space-x-2 shadow-sm shadow-accent"
-              >
-                <span className="text-xl sm:text-2xl md:text-3xl text-accent">
-                  {skill.icon && <skill.icon />}
-                </span>
-                <h6 className="text-secondary md:text-xl">{skill.title}</h6>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-        {/* other skills */}
-        <motion.div
-         whileHover={{
-          rotateX:'10deg',
-          rotateY:'-15deg',
-          transition:{
-            duration:0.3
-          },
-          boxShadow:'0px 6px 14px #D97706'
-        }}
-         className="borde bg-transparent opacity-90 border border-accent border-opacity-50 p-5 flex flex-col items-center rounded-xl space-y-5 ">
-          <h1 className="text-secondary md:text-4xl text-3xl font-bold">Other</h1>
-          <div className="flex flex-wrap justify-center gap-3 items-center">
-            {otherSkill.map((skill, index) => (
-              <div
-                key={index}
-                className="py-2 px-3 rounded-xl border border-accent flex justify-center items-center space-x-2 shadow-sm shadow-accent"
-              >
-                <span className="text-xl sm:text-2xl md:text-3xl text-accent">
-                  {skill.icon && <skill.icon />}
-                </span>
-                <h6 className="text-secondary md:text-xl">{skill.title}</h6>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
+    <section
+      id="skill"
+      className="w-full py-20 bg-gradient-to-br from-black to-[#1a1a1a]"
+    >
+      <div className="container mx-auto px-4">
+        {/* Section Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-5xl font-bold text-center mb-12 text-white"
+        >
+          Technical Arsenal
+        </motion.h1>
+
+        {/* Skills List */}
+        <div className="max-w-2xl mx-auto flex justify-center gap-5 flex-wrap">
+          {skillsData.map((skill, index) => (
+            <motion.div
+              key={index}
+              onMouseEnter={() => setActiveSkill(skill)}
+              onMouseLeave={() => setActiveSkill(null)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="flex flex-col items-center px-4 py-3 border border-white/10
+                         bg-gradient-to-tr from-white/5 to-black  
+                         rounded-md cursor-pointer relative"
+            >
+              <skill.icon
+                style={{ color: skill.color }}
+                className="lg:text-4xl md:text-3xl text-xl"
+              />
+              <p className="text-white">{skill.title}</p>
+
+              {/* AboutSkill Tooltip */}
+              {activeSkill && activeSkill.title === skill.title && (
+                <AboutSkill
+                  title={activeSkill.title}
+                  level={activeSkill.level}
+                  icon={activeSkill.icon}
+                  color={activeSkill.color}
+                />
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
+  );
+};
+
+// AboutSkill Component
+const AboutSkill = ({ title, level, icon: Icon, color }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="absolute z-[9999] top-[110%] md:left-1/2 transform -translate-x-1/2 
+                 bg-black text-white p-3 rounded-md shadow-lg w-48"
+    >
+      <div className="flex items-center gap-2">
+        <Icon style={{ color: color }} className="text-3xl" />
+        <p className="font-semibold">{title}</p>
+      </div>
+
+      <div className="w-20 h-20 mx-auto my-2">
+        <CircularProgressbar
+          value={level}
+          text={`${level}%`}
+          styles={buildStyles({
+            textSize: "14px",
+            pathColor: color,
+            textColor: "#fff",
+            trailColor: "#444",
+          })}
+        />
+      </div>
+
+      <p className="text-xs text-gray-400 text-center">
+        {title} proficiency is at {level}%
+      </p>
+    </motion.div>
   );
 };
 
