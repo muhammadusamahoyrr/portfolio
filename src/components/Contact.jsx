@@ -20,10 +20,10 @@ const Contact = () => {
   const sendEmail = () => {
     emailjs
       .sendForm(
-        "service_z306apb",
-        "template_8i8pe3o",
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         form.current,
-        "BfF_X9ufx8ue8XzXX"
+        import.meta.env.VITE_PUBLIC_KEY
       )
       .then(
         (response) => {
@@ -62,7 +62,6 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-5xl md:text-6xl font-bold text-center mb-20 text-white"
-          
         >
           Contact
         </motion.h1>
