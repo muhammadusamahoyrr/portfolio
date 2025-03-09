@@ -4,22 +4,6 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    // <section className="flex justify-center gap-10">
-    //   <h1
-    //     style={{ textShadow: "-2px -7px 0px #D97706" }}
-    //     className="text-white lg:text-6xl text-5xl font-bold text-center mb-20 font-sans"
-    //   >
-    //     About
-    //   </h1>
-    //   <div>
-    //     <div>
-    //         <img src="" alt="" />
-    //     </div>
-    //     <div>
-    //         <p></p>
-    //     </div>
-    //   </div>
-    // </section>
     <section
     id="about"
     className="relative py-20 px-4 sm:px-8 overflow-hidden"
