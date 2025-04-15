@@ -23,6 +23,7 @@ import website_1 from "../assets/website_1.png";
 import website_2 from "../assets/website_2.png";
 import website_3 from "../assets/website_3.png";
 import website_4 from "../assets/website_4.png";
+import weather_app from "../assets/Weather_app.png";
 import uni_img from "../assets/University.png";
 import college_img from "../assets/college.jpeg";
 import school_img from "../assets/school.jpeg";
@@ -333,5 +334,14 @@ export const projects = [
     link: "https://todo-app-faizansiddique193.netlify.app",
     description:
       "I created this Todo List project while independently learning React JS, Redux Toolkit, Tailwind CSS, and local storage. This project helped me strengthen my understanding of modern JavaScript frameworks, state management, and responsive design, enhancing my skills for dynamic web applications.",
+  },
+  {
+    title: "Weather App",
+    techStack: ["React Js", "Context Api","Weather Api","Axios",  "Talwind", "Local Storage"],
+    image: weather_app,
+    created: "Feburary 19,2025",
+    link: "https://todo-app-faizansiddique193.netlify.app",
+    description:
+      "A clean, user-friendly weather application that displays real-time conditions, hourly forecasts, and essential atmospheric data—including temperature, RealFeel, humidity, and wind speed. Built with React.js and powered by a weather API, it delivers accurate information in a simple, intuitive interface",
   },
 ];

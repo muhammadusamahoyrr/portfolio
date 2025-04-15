@@ -1,6 +1,5 @@
 import React from "react";
 import { socialLinks, navbarData } from "../constant/index";
-import { NavHashLink as NavLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <footer className="w-full py-5 font-sans drop-shadow-lg  bg-gradient-to-br from-black to-[#1a1a1a]">
@@ -12,9 +11,9 @@ const Footer = () => {
         <ul className="text-white flex flex-wrap justify-center gap-x-5 gap-y-2">
           {navbarData.map((value, index) => (
             <li key={index} className="md:text-lg text-sm">
-              <NavLink smooth to={`/#${value.link}`}>
+              <a href={`#${value.link}`} className="text-white">
                 {value.title}
-              </NavLink>
+              </a>
             </li>
           ))}
         </ul>

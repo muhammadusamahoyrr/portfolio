@@ -31,7 +31,7 @@ const Skill = () => {
               onMouseLeave={() => setActiveSkill(null)}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center px-4 py-3 border border-white/10
+              className="flex flex-col items-center p-4 border border-white/10
                          bg-gradient-to-tr from-white/5 to-black  
                          rounded-md cursor-pointer relative"
             >
