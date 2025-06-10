@@ -60,25 +60,16 @@ const About = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <p className="text-gray-300 text-lg leading-relaxed mb-6">
-          Hi, I’m <span className="text-accent font-semibold">Faizan</span>, a passionate and detail-oriented{" "}
-          <span className="text-accent font-semibold">Full-Stack Developer</span> with a love for building innovative
-          and user-friendly digital experiences. With a strong foundation in modern web technologies and a knack for
-          problem-solving, I specialize in creating scalable, efficient, and visually appealing applications that make
-          an impact.
+          I'm <span className="text-accent font-semibold">Moiz</span>, a <span className="text-accent font-semibold">graduate mechanical engineer</span> with a strong foundation in <span className="text-accent font-semibold">mechanical systems</span>, <span className="text-accent font-semibold">simulations</span>, and <span className="text-accent font-semibold">applied research</span>—complemented by extensive experience in <span className="text-accent font-semibold">technical writing</span>. I bring together hands-on engineering expertise and the ability to communicate complex ideas with clarity and precision.
         </p>
         <p className="text-gray-300 text-lg leading-relaxed mb-6">
-          I am <span className="text-accent font-semibold">Software Engineering Student</span> working with technologies
-          like <span className="text-accent font-semibold">JavaScript, React, Node.js, and MongoDB</span>, and I’m
-          always eager to learn and adapt to new tools and frameworks. Whether it’s crafting seamless user interfaces
-          or designing robust backend systems, I thrive on turning ideas into reality.
+          Over the years, I've worked on a wide range of technical projects, from <span className="text-accent font-semibold">vehicle parameter estimation using Kalman Filters</span> and <span className="text-accent font-semibold">dynamic system modeling in MATLAB/Simulink</span> to <span className="text-accent font-semibold">CFD and structural simulations in ANSYS and SolidWorks</span>. Alongside this, I've developed a solid track record in <span className="text-accent font-semibold">technical documentation, research papers, and academic writing</span>, contributing to publications and collaborating with researchers on high-impact topics in engineering and education.
         </p>
         <p className="text-gray-300 text-lg leading-relaxed mb-6">
-          When I’m not coding, you can find me exploring the latest tech trends, contributing to open-source projects,
-          or experimenting with new programming languages. I believe in continuous learning and strive to deliver
-          solutions that not only meet but exceed expectations.
+          My experience spans <span className="text-accent font-semibold">real-world internships</span>, <span className="text-accent font-semibold">collaborative research</span>, and <span className="text-accent font-semibold">independent developments</span> supported by strong skills in <span className="text-accent font-semibold">CAD, system analysis, simulation, and writing</span>. Whether I'm building models, analyzing data, or crafting detailed documentation, I focus on <span className="text-accent font-semibold">accuracy, innovation, and effective communication</span>.
         </p>
         <p className="text-gray-300 text-lg leading-relaxed">
-          Let’s connect and build something amazing together!
+          Let's connect and build something amazing together!
         </p>
       </motion.div>
     </div>

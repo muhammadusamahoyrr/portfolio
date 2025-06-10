@@ -75,7 +75,7 @@ const Navbar = () => {
           className="flex items-center gap-2"
         >
           <span className="text-2xl font-bold bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">
-            FaizanSiddique
+            MoizAhmad
           </span>
         </motion.div>
 

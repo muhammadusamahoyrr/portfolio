@@ -53,11 +53,12 @@ const HeroComponent = () => {
       >
         <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
           Hi, <br className=" sm:hidden md:block" />
-          I'm <span className="text-accent">Faizan</span>
+          I'm <span className="text-accent">Moiz</span>
         </h1>
         <h2 className="text-accent text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold mt-4">
           <Typewriter
-            words={["Web Developer", "Tech Enthusiast"]}
+            words={["Mechanical Testing & Industrial ","Research & Structured Technical Writing ",
+              "Simulation & Analysis "]}
             loop={true}
             cursor
             cursorStyle="|"

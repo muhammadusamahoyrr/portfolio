@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { Input } from "../components/index";
+import Input from "./Input";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhone, FaPaperPlane } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -87,12 +87,12 @@ const Contact = () => {
               <ContactMethod
                 icon={MdOutlineEmail}
                 title="Email"
-                value="contact.faizan193@gmail.com"
+                value="moizmeji2003@gmail.com"
               />
               <ContactMethod
                 icon={FaPhone}
                 title="Phone"
-                value="+92 324 1512 459"
+                value="(+92)-300-7887876"
               />
               <ContactMethod
                 icon={FaLocationDot}
