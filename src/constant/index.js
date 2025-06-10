@@ -31,9 +31,10 @@ import image6 from "../assets/image6.jpg";
 import image7 from "../assets/image7.jpg";
 import image8 from "../assets/image8.jpg";
 import image9 from "../assets/image9.jpg";
-// import uni_icon from '../assets/university.ico'
-// import school_icon from '../assets/school.ico'
-// import college_icon from '../assets/college.ico'
+import university_img from "../assets/university.png";
+//import uni_icon from '../assets/university.ico'
+ //import school_icon from '../assets/school.ico'
+ //import college_icon from '../assets/college.ico'
 export const navbarData = [
   {
     title: "About",
@@ -112,7 +113,7 @@ export const experience = [
 export const educationData = [
   {
     AcademyName: "Nust University",
-    // image: uni_img, // Remove or comment out this line since uni_img is not imported
+    image: university_img,
     degree: "Bachlor of Science in Mechanical Engineering",
     date: "sep 2021 - jun 2025",
     about:
