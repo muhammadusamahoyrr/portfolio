@@ -15,12 +15,8 @@ import { SiAnsys, SiConfluence } from "react-icons/si";
 import { MdEngineering, MdScience, MdPsychology } from "react-icons/md";
 import { FaBrain, FaChartLine } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import website_1 from "../assets/website_1.png";
-import website_2 from "../assets/website_2.png";
-import website_3 from "../assets/website_3.png";
-import website_4 from "../assets/website_4.png";
-import weather_app from "../assets/Weather_app.png";
-import uni_img from "../assets/University.png";
+
+
 import college_img from "../assets/college.jpeg";
 import school_img from "../assets/school.jpeg";
 import hmcImage from "../assets/hmc.png";
@@ -116,7 +112,7 @@ export const experience = [
 export const educationData = [
   {
     AcademyName: "Nust University",
-    image: uni_img,
+    // image: uni_img, // Remove or comment out this line since uni_img is not imported
     degree: "Bachlor of Science in Mechanical Engineering",
     date: "sep 2021 - jun 2025",
     about:
