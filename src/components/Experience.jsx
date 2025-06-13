@@ -84,9 +84,9 @@ const Experience = () => {
                 className="space-y-4"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-xl shadow-lg border border-accent/10 bg-transparent">
                     <img
-                      className="w-14 h-14 rounded-lg border border-accent/20 p-1"
+                      className="w-full h-full object-contain"
                       src={data.image}
                       alt={data.name}
                     />

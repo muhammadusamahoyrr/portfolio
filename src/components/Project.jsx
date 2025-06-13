@@ -75,16 +75,14 @@ const Project = () => {
               className="mb-6"
             >
               <div
-                className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col justify-between h-[420px] min-h-[420px] max-h-[420px] transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/10 mb-6"
+                className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col h-[420px] justify-between transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/10 mb-6 hover:scale-[1.02]"
               >
-                <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-xl mb-4" />
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-400 leading-relaxed mb-4">{project.description}</p>
-                  </div>
+                <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-xl mb-4 flex-shrink-0" />
+                <div className="flex flex-col flex-grow min-h-0">
+                  <h3 className="text-xl font-semibold text-white mb-2 flex-shrink-0">{project.title}</h3>
+                  <p className="text-gray-400 leading-relaxed mb-4 overflow-y-auto pr-2 custom-scrollbar text-sm flex-grow">{project.description}</p>
                   <button
-                    className="mt-auto px-4 py-2 bg-accent text-white rounded-lg hover:bg-orange-600 transition-colors"
+                    className="mt-auto px-6 py-2 bg-accent text-white rounded-lg hover:bg-accent/80 transition-colors flex-shrink-0"
                     onClick={() => openModal(index)}
                   >
                     Learn More

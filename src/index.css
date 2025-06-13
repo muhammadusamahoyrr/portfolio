@@ -4,8 +4,120 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    scroll-behavior: smooth;
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+  
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
+body {
+  @apply bg-black text-white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Section transitions */
+section {
+  @apply transition-all duration-300;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/20;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-accent to-white bg-clip-text text-transparent;
+}
+
+/* Navbar link hover effect */
+.nav-link-hover {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
+}
+
+/* Section dividers */
+.section-divider {
+  @apply h-[1px] w-full bg-gradient-to-r from-transparent via-white/10 to-transparent my-8;
+}
+
+/* Responsive container padding */
+.container {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden;
+}
+
+/* Button styles */
+.btn {
+  @apply px-4 py-2 rounded-lg transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-accent text-white hover:bg-accent/80;
+}
+
+/* Input styles */
+.input {
+  @apply bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:border-accent;
+}
+
+/* Animation classes */
+.fade-in {
+  @apply opacity-0 animate-[fadeIn_0.5s_ease-in_forwards];
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* In your global CSS file (e.g., src/index.css) */
@@ -19,3 +131,54 @@
     padding-left: 16px;
     background-clip: padding-box;
   }
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* In your global CSS file (e.g., src/index.css) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #D97706 #282828;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #282828; /* Darker track to match the background */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #D97706; /* A shade of orange for the thumb, matching accent */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B; /* Lighter orange on hover */
+}
+
+/* Prevent layout shifts */
+section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Ensure fixed elements don't cause layout shifts */
+.fixed {
+  position: fixed;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

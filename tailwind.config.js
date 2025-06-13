@@ -3,12 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Roboto"],
-      },
       colors: {
-        primary: "#000000",
-        secondary: "#ffffff",
         accent: "#D97706",
       },
       screens:{
@@ -16,5 +11,5 @@ export default {
       }
     },
   },
-    plugins: [require("@tailwindcss/aspect-ratio")],
-};
+  plugins: [],
+}

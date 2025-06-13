@@ -9,6 +9,8 @@ import {
   Contact,
   Footer,
   About,
+  TechnicalWriting,
+  Research,
 } from "./components/index";
 import { ToastContainer } from "react-toastify";
 
@@ -32,6 +34,8 @@ const App = () => {
       <Skill />
       <Experience />
       <Project />
+      <TechnicalWriting />
+      <Research />
       <Education />
       <Contact />
       <Footer />

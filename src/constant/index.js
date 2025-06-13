@@ -52,7 +52,14 @@ export const navbarData = [
     title: "Projects",
     link: "project",
   },
-
+  {
+    title: "Technical Writing",
+    link: "technical-writing",
+  },
+  {
+    title: "Research",
+    link: "research",
+  },
   {
     title: "Education",
     link: "education",
@@ -112,10 +119,10 @@ export const experience = [
 ];
 export const educationData = [
   {
-    AcademyName: "Nust University",
+    AcademyName: "NUST",
     image: university_img,
     degree: "Bachlor of Science in Mechanical Engineering",
-    date: "sep 2021 - jun 2025",
+    date: "Sep 2021 - Jun 2025",
     about:
       "I'm Moiz, a graduate mechanical engineer with a focus on simulations, system modeling, and technical writing. I've worked on projects involving Kalman Filter-based parameter estimation, MATLAB/Simulink modeling, and CFD/structural analysis using ANSYS and SolidWorks. Alongside engineering, I've contributed to research papers and technical documentation, combining hands-on expertise with clear, effective communication.",
   },
